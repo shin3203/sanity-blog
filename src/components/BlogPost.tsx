@@ -118,6 +118,17 @@ export default function BlogPost() {
                   />
                 )
               }
+            },
+            block: {
+              normal: ({children}) => <p className="mb-4">{children}</p>,
+              h1: ({children}) => <h1 className="text-4xl font-bold mb-4">{children}</h1>,
+              h2: ({children}) => <h2 className="text-3xl font-bold mb-4">{children}</h2>,
+              h3: ({children}) => <h3 className="text-2xl font-bold mb-4">{children}</h3>,
+              h4: ({children}) => <h4 className="text-xl font-bold mb-4">{children}</h4>,
+              blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4">{children}</blockquote>,
+              largeText: ({children}) => <p className="text-xl mb-4">{children}</p>,
+              extraLargeText: ({children}) => <p className="text-2xl mb-4">{children}</p>,
+              smallText: ({children}) => <p className="text-sm mb-4">{children}</p>,
             }
           }}
         />
