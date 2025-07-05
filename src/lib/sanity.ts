@@ -40,6 +40,7 @@ export interface BlogPost {
   }>
   publishedAt: string
   body: any[]
+  bodyMarkdown?: string
   excerpt?: string
 }
 
@@ -105,6 +106,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
       },
       publishedAt,
       body,
+      bodyMarkdown,
       excerpt
     }
   `, { slug })

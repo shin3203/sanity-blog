@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { PortableText } from '@portabletext/react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { getBlogPost, type BlogPost as BlogPostType } from '../lib/sanity'
 import SEO from './SEO'
 
@@ -105,33 +107,70 @@ export default function BlogPost() {
       </header>
 
       <div className="prose prose-xl max-w-none">
-        <PortableText 
-          value={post.body}
-          components={{
-            types: {
-              image: ({value}) => {
-                return (
-                  <img
-                    src={value.asset.url}
-                    alt={value.alt || ''}
-                    className="rounded-lg my-8"
-                  />
-                )
+        {post.bodyMarkdown ? (
+          <ReactMarkdown 
+            remarkPlugins={[remarkGfm]}
+            components={{
+              h1: ({children}) => <h1 className="text-4xl font-bold mb-6 mt-8">{children}</h1>,
+              h2: ({children}) => <h2 className="text-3xl font-bold mb-4 mt-6">{children}</h2>,
+              h3: ({children}) => <h3 className="text-2xl font-bold mb-3 mt-4">{children}</h3>,
+              h4: ({children}) => <h4 className="text-xl font-bold mb-2 mt-3">{children}</h4>,
+              p: ({children}) => <p className="mb-4 text-lg leading-relaxed">{children}</p>,
+              ul: ({children}) => <ul className="list-disc list-inside mb-4 ml-4">{children}</ul>,
+              ol: ({children}) => <ol className="list-decimal list-inside mb-4 ml-4">{children}</ol>,
+              li: ({children}) => <li className="mb-2">{children}</li>,
+              blockquote: ({children}) => (
+                <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4 ml-2">{children}</blockquote>
+              ),
+              code: ({inline, children}) => 
+                inline ? (
+                  <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">{children}</code>
+                ) : (
+                  <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">
+                    <code>{children}</code>
+                  </pre>
+                ),
+              strong: ({children}) => <strong className="font-bold">{children}</strong>,
+              em: ({children}) => <em className="italic">{children}</em>,
+              hr: () => <hr className="my-8 border-gray-300" />,
+              a: ({href, children}) => (
+                <a href={href} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                  {children}
+                </a>
+              ),
+            }}
+          >
+            {post.bodyMarkdown}
+          </ReactMarkdown>
+        ) : (
+          <PortableText 
+            value={post.body}
+            components={{
+              types: {
+                image: ({value}) => {
+                  return (
+                    <img
+                      src={value.asset.url}
+                      alt={value.alt || ''}
+                      className="rounded-lg my-8"
+                    />
+                  )
+                }
+              },
+              block: {
+                normal: ({children}) => <p className="mb-4">{children}</p>,
+                h1: ({children}) => <h1 className="text-4xl font-bold mb-4">{children}</h1>,
+                h2: ({children}) => <h2 className="text-3xl font-bold mb-4">{children}</h2>,
+                h3: ({children}) => <h3 className="text-2xl font-bold mb-4">{children}</h3>,
+                h4: ({children}) => <h4 className="text-xl font-bold mb-4">{children}</h4>,
+                blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4">{children}</blockquote>,
+                largeText: ({children}) => <p className="text-xl mb-4">{children}</p>,
+                extraLargeText: ({children}) => <p className="text-2xl mb-4">{children}</p>,
+                smallText: ({children}) => <p className="text-sm mb-4">{children}</p>,
               }
-            },
-            block: {
-              normal: ({children}) => <p className="mb-4">{children}</p>,
-              h1: ({children}) => <h1 className="text-4xl font-bold mb-4">{children}</h1>,
-              h2: ({children}) => <h2 className="text-3xl font-bold mb-4">{children}</h2>,
-              h3: ({children}) => <h3 className="text-2xl font-bold mb-4">{children}</h3>,
-              h4: ({children}) => <h4 className="text-xl font-bold mb-4">{children}</h4>,
-              blockquote: ({children}) => <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4">{children}</blockquote>,
-              largeText: ({children}) => <p className="text-xl mb-4">{children}</p>,
-              extraLargeText: ({children}) => <p className="text-2xl mb-4">{children}</p>,
-              smallText: ({children}) => <p className="text-sm mb-4">{children}</p>,
-            }
-          }}
-        />
+            }}
+          />
+        )}
       </div>
     </article>
     </>
