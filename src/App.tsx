@@ -8,27 +8,36 @@ function AppContent() {
   const isHomePage = location.pathname === '/'
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* ヘッダー */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-black">
+      {/* 高級感のあるヘッダー */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-gold/20">
+        <div className="container mx-auto px-6 py-6">
           <nav className="flex items-center justify-between">
-            <a href="/" className="group flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-lg">
-                <span className="text-white font-bold text-xl">朝</span>
+            <a href="/" className="group flex items-center space-x-4">
+              <div className="relative w-12 h-12">
+                <div className="absolute inset-0 bg-gradient-to-br from-gold to-amber-600 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative w-12 h-12 bg-black rounded-full flex items-center justify-center border border-gold/50">
+                  <span className="text-gold font-serif text-xl">朝</span>
+                </div>
               </div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                Morning Blog
-              </h1>
+              <div>
+                <h1 className="text-2xl font-light tracking-widest text-white">
+                  MORNING
+                </h1>
+                <p className="text-xs tracking-[0.3em] text-gold/70 uppercase">Luxury Lifestyle Blog</p>
+              </div>
             </a>
-            <div className="flex items-center space-x-6">
-              <a href="/" className="text-gray-700 hover:text-gray-900 transition-colors font-medium">
-                ホーム
+            <div className="flex items-center space-x-8">
+              <a href="/" className="text-white/70 hover:text-gold transition-all duration-300 text-sm tracking-wider uppercase">
+                Home
               </a>
-              <a href="#about" className="text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <a href="#about" className="text-white/70 hover:text-gold transition-all duration-300 text-sm tracking-wider uppercase">
                 About
               </a>
-              <button className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-medium">
+              <a href="#contact" className="text-white/70 hover:text-gold transition-all duration-300 text-sm tracking-wider uppercase">
+                Contact
+              </a>
+              <button className="px-6 py-2 border border-gold/50 text-gold hover:bg-gold hover:text-black transition-all duration-500 text-sm tracking-wider uppercase">
                 Subscribe
               </button>
             </div>
@@ -36,35 +45,57 @@ function AppContent() {
         </div>
       </header>
       
-      {/* ヒーローセクション（トップページのみ） */}
+      {/* 豪華なヒーローセクション */}
       {isHomePage && (
-        <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-          <div className="container mx-auto px-4 py-20 relative">
-            <div className="text-center max-w-4xl mx-auto">
-              <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-                朝活で<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">人生を変える</span>
-              </h2>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-                毎朝4時起きを5年間継続。朝活で得た知見とライフハックを共有します。
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#latest" className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:shadow-xl transition-all font-semibold">
-                  最新記事を読む
-                </a>
-                <a href="#about" className="px-8 py-4 bg-white text-gray-800 rounded-lg hover:bg-gray-50 transition-all font-semibold border-2 border-gray-200">
-                  朝活について学ぶ
-                </a>
+        <div className="relative h-screen flex items-center justify-center overflow-hidden">
+          {/* 背景のグラデーションアニメーション */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gold/5 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-amber-600/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          </div>
+          
+          {/* メインコンテンツ */}
+          <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+            <div className="mb-8">
+              <div className="inline-block">
+                <div className="h-px bg-gradient-to-r from-transparent via-gold to-transparent w-32 mb-8"></div>
+                <p className="text-gold/70 tracking-[0.3em] uppercase text-sm mb-4">Transform Your Life</p>
               </div>
             </div>
+            
+            <h2 className="text-6xl md:text-8xl font-thin text-white mb-6 leading-tight">
+              朝活で築く
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-amber-400 to-gold font-light">
+                成功への道
+              </span>
+            </h2>
+            
+            <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+              毎朝4時起床。5年間の実践から得た、エリートだけが知る成功の秘訣を公開。
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+              <a href="#latest" className="group relative px-8 py-4 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-gold via-amber-400 to-gold transition-all duration-500 group-hover:scale-105"></div>
+                <span className="relative text-black font-medium tracking-wider uppercase">Explore Articles</span>
+              </a>
+              <a href="#about" className="px-8 py-4 border border-gold/30 text-gold hover:bg-gold/10 transition-all duration-500 tracking-wider uppercase">
+                Learn More
+              </a>
+            </div>
           </div>
-          {/* デコレーション要素 */}
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-200 rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-purple-200 rounded-full blur-3xl opacity-50"></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-pink-200 rounded-full blur-3xl opacity-40"></div>
+          
+          {/* スクロール指示 */}
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <div className="w-6 h-10 border border-gold/30 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-gold rounded-full mt-2 animate-bounce"></div>
+            </div>
+          </div>
         </div>
       )}
       
-      <main id="latest" className="relative z-10 bg-gray-50 min-h-screen">
+      <main id="latest" className="relative z-10 bg-black min-h-screen pt-24">
         <Routes>
           <Route path="/" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
@@ -72,41 +103,43 @@ function AppContent() {
         </Routes>
       </main>
       
-      {/* フッター */}
-      <footer className="bg-gradient-to-br from-purple-50 to-blue-50 border-t border-gray-200">
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">Morning Blog</h3>
-              <p className="text-gray-600">
-                朝活で人生を変える。毎日の小さな習慣が大きな成果を生み出します。
+      {/* 高級感のあるフッター */}
+      <footer className="bg-black border-t border-gold/20">
+        <div className="container mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div className="md:col-span-2">
+              <h3 className="text-2xl font-light text-white mb-4 tracking-wider">MORNING</h3>
+              <p className="text-white/60 leading-relaxed">
+                エグゼクティブのための朝活メソッド。<br />
+                成功者たちが実践する、朝の黄金時間の使い方を伝授します。
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">カテゴリー</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">朝活の基本</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">早起きのコツ</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">朝の健康習慣</a></li>
+              <h4 className="text-white font-light tracking-wider mb-6 uppercase">Categories</h4>
+              <ul className="space-y-3">
+                <li><a href="#" className="text-white/60 hover:text-gold transition-colors duration-300">朝活の哲学</a></li>
+                <li><a href="#" className="text-white/60 hover:text-gold transition-colors duration-300">成功者の習慣</a></li>
+                <li><a href="#" className="text-white/60 hover:text-gold transition-colors duration-300">マインドセット</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4 text-gray-900">フォロー</h3>
+              <h4 className="text-white font-light tracking-wider mb-6 uppercase">Connect</h4>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-purple-100 transition-colors shadow-md">
-                  <span className="text-gray-600">X</span>
+                <a href="#" className="w-10 h-10 border border-gold/30 rounded-full flex items-center justify-center hover:bg-gold hover:text-black hover:border-gold transition-all duration-300">
+                  <span className="text-sm">X</span>
                 </a>
-                <a href="#" className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-purple-100 transition-colors shadow-md">
-                  <span className="text-gray-600">FB</span>
+                <a href="#" className="w-10 h-10 border border-gold/30 rounded-full flex items-center justify-center hover:bg-gold hover:text-black hover:border-gold transition-all duration-300">
+                  <span className="text-sm">IN</span>
                 </a>
-                <a href="#" className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-purple-100 transition-colors shadow-md">
-                  <span className="text-gray-600">IG</span>
+                <a href="#" className="w-10 h-10 border border-gold/30 rounded-full flex items-center justify-center hover:bg-gold hover:text-black hover:border-gold transition-all duration-300">
+                  <span className="text-sm">FB</span>
                 </a>
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
-            <p>&copy; 2024 Morning Blog. Powered by Sanity & React</p>
+          <div className="border-t border-gold/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-white/40 text-sm">© 2024 MORNING. All rights reserved.</p>
+            <p className="text-white/40 text-sm">Crafted with excellence</p>
           </div>
         </div>
       </footer>
@@ -121,5 +154,17 @@ function App() {
     </Router>
   )
 }
+
+// Tailwind CSSカスタムカラー定義
+const style = document.createElement('style')
+style.textContent = `
+  .text-gold { color: #D4AF37; }
+  .bg-gold { background-color: #D4AF37; }
+  .border-gold { border-color: #D4AF37; }
+  .from-gold { --tw-gradient-from: #D4AF37; }
+  .via-gold { --tw-gradient-via: #D4AF37; }
+  .to-gold { --tw-gradient-to: #D4AF37; }
+`
+document.head.appendChild(style)
 
 export default App
