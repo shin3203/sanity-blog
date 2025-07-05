@@ -10,7 +10,7 @@ console.log('Sanity Config:', {
 export const client = createClient({
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID || 'your-project-id',
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
-  useCdn: true,
+  useCdn: false, // Disable CDN to get fresh content
   apiVersion: '2024-01-01',
 })
 

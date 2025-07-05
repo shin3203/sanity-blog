@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import BlogList from './components/BlogList'
 import BlogPost from './components/BlogPost'
+import DebugPage from './components/DebugPage'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/debug" element={<DebugPage />} />
           </Routes>
         </main>
         

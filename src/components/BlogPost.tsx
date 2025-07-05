@@ -104,7 +104,7 @@ export default function BlogPost() {
         </div>
       </header>
 
-      <div className="prose prose-lg max-w-none">
+      <div className="prose prose-xl max-w-none">
         <PortableText 
           value={post.body}
           components={{
