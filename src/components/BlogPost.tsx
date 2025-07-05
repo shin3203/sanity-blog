@@ -161,14 +161,16 @@ export default function BlogPost() {
               blockquote: ({children}) => (
                 <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4 ml-2">{children}</blockquote>
               ),
-              code: ({inline, children}) => 
-                inline ? (
+              code: ({children}: any) => {
+                const isInline = !String(children).includes('\n');
+                return isInline ? (
                   <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">{children}</code>
                 ) : (
                   <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">
                     <code>{children}</code>
                   </pre>
-                ),
+                );
+              },
               strong: ({children}) => <strong className="font-bold">{children}</strong>,
               em: ({children}) => <em className="italic">{children}</em>,
               hr: () => <hr className="my-8 border-gray-300" />,
