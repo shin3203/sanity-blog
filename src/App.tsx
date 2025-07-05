@@ -73,39 +73,39 @@ function AppContent() {
       </main>
       
       {/* フッター */}
-      <footer className="bg-gray-900 text-white">
+      <footer className="bg-gradient-to-br from-purple-50 to-blue-50 border-t border-gray-200">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Morning Blog</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-bold mb-4 text-gray-900">Morning Blog</h3>
+              <p className="text-gray-600">
                 朝活で人生を変える。毎日の小さな習慣が大きな成果を生み出します。
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">カテゴリー</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-900">カテゴリー</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">朝活の基本</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">早起きのコツ</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">朝の健康習慣</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">朝活の基本</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">早起きのコツ</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-purple-600 transition-colors">朝の健康習慣</a></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">フォロー</h3>
+              <h3 className="text-xl font-bold mb-4 text-gray-900">フォロー</h3>
               <div className="flex space-x-4">
-                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                  <span className="text-gray-400">X</span>
+                <a href="#" className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-purple-100 transition-colors shadow-md">
+                  <span className="text-gray-600">X</span>
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                  <span className="text-gray-400">FB</span>
+                <a href="#" className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-purple-100 transition-colors shadow-md">
+                  <span className="text-gray-600">FB</span>
                 </a>
-                <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors">
-                  <span className="text-gray-400">IG</span>
+                <a href="#" className="w-10 h-10 bg-white rounded-lg flex items-center justify-center hover:bg-purple-100 transition-colors shadow-md">
+                  <span className="text-gray-600">IG</span>
                 </a>
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-200 mt-8 pt-8 text-center text-gray-600">
             <p>&copy; 2024 Morning Blog. Powered by Sanity & React</p>
           </div>
         </div>
