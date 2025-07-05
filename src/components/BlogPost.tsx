@@ -115,7 +115,45 @@ export default function BlogPost() {
               h2: ({children}) => <h2 className="text-3xl font-bold mb-4 mt-6">{children}</h2>,
               h3: ({children}) => <h3 className="text-2xl font-bold mb-3 mt-4">{children}</h3>,
               h4: ({children}) => <h4 className="text-xl font-bold mb-2 mt-3">{children}</h4>,
-              p: ({children}) => <p className="mb-4 text-lg leading-relaxed">{children}</p>,
+              p: ({children}) => {
+                // childrenが文字列の場合の処理
+                if (typeof children === 'string') {
+                  // {large} で始まる段落は大きく
+                  if (children.startsWith('{large}')) {
+                    return <p className="mb-6 text-2xl leading-relaxed font-medium">{children.replace('{large}', '').trim()}</p>;
+                  }
+                  // {xlarge} で始まる段落はもっと大きく
+                  if (children.startsWith('{xlarge}')) {
+                    return <p className="mb-6 text-3xl leading-relaxed font-bold">{children.replace('{xlarge}', '').trim()}</p>;
+                  }
+                  // {small} で始まる段落は小さく
+                  if (children.startsWith('{small}')) {
+                    return <p className="mb-4 text-sm leading-relaxed text-gray-600">{children.replace('{small}', '').trim()}</p>;
+                  }
+                }
+                
+                // 配列の場合（複数の要素を含む段落）
+                if (Array.isArray(children) && children.length > 0) {
+                  const firstChild = children[0];
+                  if (typeof firstChild === 'string') {
+                    if (firstChild.startsWith('{large}')) {
+                      children[0] = firstChild.replace('{large}', '').trim();
+                      return <p className="mb-6 text-2xl leading-relaxed font-medium">{children}</p>;
+                    }
+                    if (firstChild.startsWith('{xlarge}')) {
+                      children[0] = firstChild.replace('{xlarge}', '').trim();
+                      return <p className="mb-6 text-3xl leading-relaxed font-bold">{children}</p>;
+                    }
+                    if (firstChild.startsWith('{small}')) {
+                      children[0] = firstChild.replace('{small}', '').trim();
+                      return <p className="mb-4 text-sm leading-relaxed text-gray-600">{children}</p>;
+                    }
+                  }
+                }
+                
+                // 通常の段落
+                return <p className="mb-4 text-lg leading-relaxed">{children}</p>;
+              },
               ul: ({children}) => <ul className="list-disc list-inside mb-4 ml-4">{children}</ul>,
               ol: ({children}) => <ol className="list-decimal list-inside mb-4 ml-4">{children}</ol>,
               li: ({children}) => <li className="mb-2">{children}</li>,
