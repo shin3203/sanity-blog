@@ -59,28 +59,29 @@ export default function BlogPost() {
         url={`${window.location.origin}/blog/${post.slug.current}`}
       />
       <article className="container mx-auto px-4 py-8 max-w-4xl">
-        <Link to="/" className="inline-flex items-center text-blue-600 hover:underline mb-8">
-          ← Back to blog
+        <Link to="/" className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors mb-8 group">
+          <span className="mr-2 transform group-hover:-translate-x-1 transition-transform">←</span>
+          記事一覧に戻る
         </Link>
 
       {post.mainImage && (
         <img
           src={post.mainImage.asset.url}
           alt={post.mainImage.alt || post.title}
-          className="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
+          className="w-full h-64 md:h-96 object-cover rounded-2xl mb-8 shadow-2xl"
         />
       )}
 
       <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{post.title}</h1>
         
-        <div className="flex flex-wrap items-center gap-4 text-gray-600">
+        <div className="flex flex-wrap items-center gap-4 text-gray-300">
           <div className="flex items-center gap-2">
             {post.author.image && (
               <img
                 src={post.author.image.asset.url}
                 alt={post.author.name}
-                className="w-10 h-10 rounded-full"
+                className="w-10 h-10 rounded-full ring-2 ring-purple-500/50"
               />
             )}
             <span>{post.author.name}</span>
@@ -97,7 +98,7 @@ export default function BlogPost() {
           {post.categories && post.categories.length > 0 && (
             <div className="flex gap-2">
               {post.categories.map((category, idx) => (
-                <span key={idx} className="bg-gray-100 px-3 py-1 rounded-full text-sm">
+                <span key={idx} className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-sm">
                   {category.title}
                 </span>
               ))}
@@ -106,7 +107,7 @@ export default function BlogPost() {
         </div>
       </header>
 
-      <div className="prose prose-xl max-w-none">
+      <div className="prose prose-xl prose-invert max-w-none">
         {post.bodyMarkdown ? (
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]}

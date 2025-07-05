@@ -46,55 +46,56 @@ export default function BlogList() {
         description="Read our latest blog posts and articles"
       />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-12">Blog Posts</h1>
+        <h1 className="text-4xl font-bold text-center mb-12 text-white">最新の記事</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
-          <article key={post._id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+          <article key={post._id} className="group bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-gray-800/70 transition-all duration-300 border border-gray-700/50 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10">
             {post.mainImage && (
-              <Link to={`/blog/${post.slug.current}`}>
+              <Link to={`/blog/${post.slug.current}`} className="relative overflow-hidden block">
                 <img
                   src={post.mainImage.asset.url}
                   alt={post.mainImage.alt || post.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
               </Link>
             )}
             
             <div className="p-6">
-              <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+              <div className="flex items-center gap-2 text-sm mb-3">
                 {post.categories && post.categories.map((category, idx) => (
-                  <span key={idx} className="bg-gray-100 px-2 py-1 rounded">
+                  <span key={idx} className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs">
                     {category.title}
                   </span>
                 ))}
               </div>
               
-              <h2 className="text-xl font-semibold mb-2">
+              <h2 className="text-xl font-bold mb-3">
                 <Link 
                   to={`/blog/${post.slug.current}`}
-                  className="text-gray-900 hover:text-blue-600 transition-colors"
+                  className="text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300"
                 >
                   {post.title}
                 </Link>
               </h2>
               
               {post.excerpt && (
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-gray-400 mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
               )}
               
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between pt-4 border-t border-gray-700">
                 <div className="flex items-center gap-2">
                   {post.author.image && (
                     <img
                       src={post.author.image.asset.url}
                       alt={post.author.name}
-                      className="w-8 h-8 rounded-full"
+                      className="w-8 h-8 rounded-full ring-2 ring-purple-500/50"
                     />
                   )}
-                  <span className="text-sm text-gray-600">{post.author.name}</span>
+                  <span className="text-sm text-gray-300">{post.author.name}</span>
                 </div>
                 
                 <time className="text-sm text-gray-500">
