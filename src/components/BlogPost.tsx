@@ -75,7 +75,7 @@ export default function BlogPost() {
       <header className="mb-8">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{post.title}</h1>
         
-        <div className="flex flex-wrap items-center gap-4 text-gray-300">
+        <div className="flex flex-wrap items-center gap-4 text-slate-300">
           <div className="flex items-center gap-2">
             {post.author.image && (
               <img
@@ -107,29 +107,29 @@ export default function BlogPost() {
         </div>
       </header>
 
-      <div className="prose prose-xl prose-invert max-w-none">
+      <div className="prose prose-lg prose-invert max-w-none prose-slate prose-headings:text-slate-100 prose-p:text-slate-200 prose-strong:text-slate-100 prose-blockquote:text-slate-300 prose-blockquote:border-slate-500">
         {post.bodyMarkdown ? (
           <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             components={{
-              h1: ({children}) => <h1 className="text-4xl font-bold mb-6 mt-8">{children}</h1>,
-              h2: ({children}) => <h2 className="text-3xl font-bold mb-4 mt-6">{children}</h2>,
-              h3: ({children}) => <h3 className="text-2xl font-bold mb-3 mt-4">{children}</h3>,
-              h4: ({children}) => <h4 className="text-xl font-bold mb-2 mt-3">{children}</h4>,
+              h1: ({children}) => <h1 className="text-4xl font-bold mb-6 mt-8 text-slate-100">{children}</h1>,
+              h2: ({children}) => <h2 className="text-3xl font-bold mb-4 mt-6 text-slate-100">{children}</h2>,
+              h3: ({children}) => <h3 className="text-2xl font-bold mb-3 mt-4 text-slate-100">{children}</h3>,
+              h4: ({children}) => <h4 className="text-xl font-bold mb-2 mt-3 text-slate-100">{children}</h4>,
               p: ({children}) => {
                 // childrenが文字列の場合の処理
                 if (typeof children === 'string') {
                   // {large} で始まる段落は大きく
                   if (children.startsWith('{large}')) {
-                    return <p className="mb-6 text-2xl leading-relaxed font-medium">{children.replace('{large}', '').trim()}</p>;
+                    return <p className="mb-6 text-2xl leading-relaxed font-medium text-slate-200">{children.replace('{large}', '').trim()}</p>;
                   }
                   // {xlarge} で始まる段落はもっと大きく
                   if (children.startsWith('{xlarge}')) {
-                    return <p className="mb-6 text-3xl leading-relaxed font-bold">{children.replace('{xlarge}', '').trim()}</p>;
+                    return <p className="mb-6 text-3xl leading-relaxed font-bold text-slate-100">{children.replace('{xlarge}', '').trim()}</p>;
                   }
                   // {small} で始まる段落は小さく
                   if (children.startsWith('{small}')) {
-                    return <p className="mb-4 text-sm leading-relaxed text-gray-600">{children.replace('{small}', '').trim()}</p>;
+                    return <p className="mb-4 text-sm leading-relaxed text-slate-400">{children.replace('{small}', '').trim()}</p>;
                   }
                 }
                 
@@ -153,21 +153,21 @@ export default function BlogPost() {
                 }
                 
                 // 通常の段落
-                return <p className="mb-4 text-lg leading-relaxed">{children}</p>;
+                return <p className="mb-4 text-lg leading-relaxed text-slate-200">{children}</p>;
               },
               ul: ({children}) => <ul className="list-disc list-inside mb-4 ml-4">{children}</ul>,
               ol: ({children}) => <ol className="list-decimal list-inside mb-4 ml-4">{children}</ol>,
               li: ({children}) => <li className="mb-2">{children}</li>,
               blockquote: ({children}) => (
-                <blockquote className="border-l-4 border-gray-300 pl-4 italic mb-4 ml-2">{children}</blockquote>
+                <blockquote className="border-l-4 border-slate-500 pl-4 italic mb-4 ml-2 text-slate-300">{children}</blockquote>
               ),
               code: ({children}: any) => {
                 const isInline = !String(children).includes('\n');
                 return isInline ? (
-                  <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">{children}</code>
+                  <code className="bg-slate-700 px-2 py-1 rounded text-sm text-slate-200">{children}</code>
                 ) : (
-                  <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4">
-                    <code>{children}</code>
+                  <pre className="bg-slate-800 p-4 rounded-lg overflow-x-auto mb-4 border border-slate-700">
+                    <code className="text-slate-200">{children}</code>
                   </pre>
                 );
               },

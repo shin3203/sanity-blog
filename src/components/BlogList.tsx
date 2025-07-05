@@ -46,11 +46,11 @@ export default function BlogList() {
         description="Read our latest blog posts and articles"
       />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-12 text-white">最新の記事</h1>
+        <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">最新の記事</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => (
-          <article key={post._id} className="group bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-gray-800/70 transition-all duration-300 border border-gray-700/50 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10">
+          <article key={post._id} className="group bg-slate-800/60 backdrop-blur-sm rounded-xl overflow-hidden hover:bg-slate-800/80 transition-all duration-300 border border-slate-700/50 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/20">
             {post.mainImage && (
               <Link to={`/blog/${post.slug.current}`} className="relative overflow-hidden block">
                 <img
@@ -81,12 +81,12 @@ export default function BlogList() {
               </h2>
               
               {post.excerpt && (
-                <p className="text-gray-400 mb-4 line-clamp-3">
+                <p className="text-slate-300 mb-4 line-clamp-3 leading-relaxed">
                   {post.excerpt}
                 </p>
               )}
               
-              <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+              <div className="flex items-center justify-between pt-4 border-t border-slate-700/50">
                 <div className="flex items-center gap-2">
                   {post.author.image && (
                     <img
@@ -95,10 +95,10 @@ export default function BlogList() {
                       className="w-8 h-8 rounded-full ring-2 ring-purple-500/50"
                     />
                   )}
-                  <span className="text-sm text-gray-300">{post.author.name}</span>
+                  <span className="text-sm text-slate-200">{post.author.name}</span>
                 </div>
                 
-                <time className="text-sm text-gray-500">
+                <time className="text-sm text-slate-400">
                   {new Date(post.publishedAt).toLocaleDateString()}
                 </time>
               </div>
