@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import BlogList from './components/BlogList'
 import BlogPost from './components/BlogPost'
 import DebugPage from './components/DebugPage'
+import DiagnosePage from './components/DiagnosePage'
 
 function AppContent() {
   const location = useLocation()
@@ -132,6 +133,7 @@ function AppContent() {
           <Route path="/" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/debug" element={<DebugPage />} />
+          <Route path="/diagnose" element={<DiagnosePage />} />
         </Routes>
       </main>
       
