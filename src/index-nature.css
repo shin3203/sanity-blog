@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 朝の湖畔テーマ - 自然の癒し */
+
+/* iOS Safe Area対応 */
+@supports (padding: max(0px)) {
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  
+  header {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* スクロールバーのカスタマイズ - 水のような質感 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-blue-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-300 rounded-full;
+  background: linear-gradient(to bottom, #87CEEB, #4682B4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-400;
+}
+
+/* 水面の波紋アニメーション */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 霧の流れアニメーション */
+@keyframes mist-flow {
+  0% {
+    transform: translateX(-100%) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(100%) translateY(-20px);
+    opacity: 0;
+  }
+}
+
+/* 朝日の光アニメーション */
+@keyframes sunrise {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(-30px);
+  }
+}
+
+/* 水面のきらめきアニメーション */
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(10px) translateY(-5px) scale(1.2);
+  }
+}
+
+/* 葉っぱの揺れアニメーション */
+@keyframes gentle-sway {
+  0%, 100% {
+    transform: rotate(-2deg) translateX(0);
+  }
+  50% {
+    transform: rotate(2deg) translateX(5px);
+  }
+}
+
+/* 波のアニメーション */
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-10px) scaleY(0.95);
+  }
+}
+
+/* アニメーションクラス */
+.animate-ripple {
+  animation: ripple 3s ease-out infinite;
+}
+
+.animate-mist {
+  animation: mist-flow 20s ease-in-out infinite;
+}
+
+.animate-sunrise {
+  animation: sunrise 8s ease-in-out infinite alternate;
+}
+
+.animate-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.animate-sway {
+  animation: gentle-sway 6s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 3s ease-in-out infinite;
+}
+
+/* 水面のグラデーション背景 */
+.lake-gradient {
+  background: linear-gradient(to bottom, 
+    #FFE4B5 0%,     /* 朝焼けの光 */
+    #FFA07A 10%,    /* 朝焼けのオレンジ */
+    #87CEEB 30%,    /* 空の青 */
+    #4682B4 60%,    /* 湖の青 */
+    #1E3A5F 100%    /* 深い水の色 */
+  );
+}
+
+/* 朝霧のエフェクト */
+.morning-mist {
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent 100%
+  );
+}
+
+/* 水のぼかしエフェクト */
+.water-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(135, 206, 235, 0.1);
+}
+
+/* 自然な影 */
+.nature-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(70, 130, 180, 0.1),
+    0 2px 4px -1px rgba(70, 130, 180, 0.06),
+    0 20px 25px -5px rgba(70, 130, 180, 0.1);
+}
+
+/* テキスト選択時の色 */
+::selection {
+  @apply bg-blue-400/30 text-blue-900;
+}
+
+/* 朝日のグローエフェクト */
+.sunrise-glow {
+  box-shadow: 
+    0 0 40px rgba(255, 160, 122, 0.4),
+    0 0 80px rgba(255, 160, 122, 0.2),
+    0 0 120px rgba(255, 160, 122, 0.1);
+}
+
+/* 水面の反射エフェクト */
+.water-reflection {
+  position: relative;
+  overflow: hidden;
+}
+
+.water-reflection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    transparent 60%,
+    rgba(255, 255, 255, 0.1) 80%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: scaleY(-1);
+  opacity: 0.3;
+  pointer-events: none;
+}
