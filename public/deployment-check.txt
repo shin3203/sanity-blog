@@ -1,0 +1,7 @@
+ULTRA AI THEME DEPLOYMENT CHECK
+================================
+Version: 0.0.2
+Build Date: 2025-01-07 19:50
+Theme: Ultra AI (Black Hole Effect)
+Git Commit: This file should be served at /deployment-check.txt
+If you can see this file, Vercel is deploying the correct code.
