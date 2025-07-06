@@ -126,7 +126,7 @@ function AppContent() {
       
       {/* ウルトラヒーローセクション */}
       {isHomePage && (
-        <div className="relative min-h-screen flex items-center justify-center pt-20">
+        <div className="relative h-[60vh] flex items-center justify-center pt-20">
           {/* 3Dテキストフロート */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="text-3d-container animate-float-3d">
