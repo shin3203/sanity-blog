@@ -8,8 +8,16 @@
     <meta name="description" content="朝活の習慣化とAI活用を組み合わせて、生産性を最大化する方法を発信。ChatGPT、Claude、その他最新AIツールの実践的な使い方も紹介。" />
   </head>
   <body>
-    <!-- ULTRA AI THEME 2025-01-07 19:45 -->
+    <!-- ULTRA AI THEME 2025-01-07 19:47 -->
     <div id="root"></div>
+    <script>
+      console.log('🎯 ULTRA AI THEME CHECK - index.html loaded');
+      console.log('📅 Build: 2025-01-07 19:47');
+      fetch('/build-info.json')
+        .then(r => r.json())
+        .then(d => console.log('📦 Build info:', d))
+        .catch(e => console.error('❌ Build info not found'));
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
