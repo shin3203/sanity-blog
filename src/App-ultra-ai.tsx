@@ -3,13 +3,25 @@ import BlogList from './components/BlogList'
 import BlogPost from './components/BlogPost'
 import DebugPage from './components/DebugPage'
 import DiagnosePage from './components/DiagnosePage'
+import { useEffect } from 'react'
 
 function AppContent() {
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  
+  // Theme verification
+  useEffect(() => {
+    console.log('🚀 ULTRA AI Theme Component Mounted - v0.0.2');
+    console.log('🎨 Theme: Black hole effect with quantum particles');
+  }, [])
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
+      {/* Theme Verification Banner */}
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-violet-600 to-cyan-600 text-white p-2 text-center font-mono text-sm">
+        🚀 ULTRA AI THEME v0.0.2 | Black Hole Effect Active | Build: 2025-01-07
+      </div>
+      
       {/* 深淵の背景 - 吸い込まれる宇宙 */}
       <div className="fixed inset-0 ultra-void-gradient"></div>
       
