@@ -1,6 +1,13 @@
-# Sanity Blog Site
+# Sanity Blog Site - ULTRA AI Theme
 
 A modern blog site built with React, TypeScript, and Tailwind CSS, integrated with Sanity CMS.
+
+## 🌀 Current Theme: ULTRA AI (Updated: 2025-01-07)
+- ブラックホール効果で吸い込まれる体験
+- 3Dパースペクティブグリッド
+- 量子パーティクルアニメーション
+- ネオンライトニングエフェクト
+- ホログラフィックUI
 
 ## Features
 
