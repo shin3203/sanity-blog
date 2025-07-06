@@ -1,11 +1,11 @@
 {
   "name": "sanity-blog",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "echo '🚀 ULTRA AI BUILD START' && git rev-parse HEAD && cat src/main.tsx | head -5",
+    "prebuild": "echo '✨ MINIMAL AI BUILD START' && git rev-parse HEAD && cat src/main.tsx | head -5",
     "build": "rm -rf dist && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

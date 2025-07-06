@@ -1,12 +1,12 @@
 {
-  "theme": "ULTRA-AI",
-  "buildDate": "2025-01-07T19:47:00Z",
-  "version": "0.0.2",
-  "expectedCssSize": "69.89 kB",
+  "theme": "MINIMAL-AI",
+  "buildDate": "2025-01-07T20:30:00Z",
+  "version": "0.0.3",
+  "expectedCssSize": "15-20 kB",
   "features": [
-    "Black hole effect",
-    "3D perspective",
-    "Quantum particles",
-    "Floating UI elements"
+    "Clean white background",
+    "Minimal animations",
+    "Readable typography",
+    "Simple gradient accents"
   ]
 }
